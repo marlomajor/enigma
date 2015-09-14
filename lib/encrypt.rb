@@ -9,7 +9,9 @@ attr_accessor :key_file, :date_file  # => nil
   end             # => :to_message
 
   def key_file
-
+    random_number = rand
+    random_string = random_number.to_s
+    random_string[2..6]
   end  # => :key_file
 
   def date_file
