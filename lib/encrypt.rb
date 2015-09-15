@@ -21,23 +21,26 @@ attr_accessor :key_file, :date_file
     final_string
   end
 
+  def offset_calculator
+  end
+
 end
-
-new_enigma = Enigma.new("")
-new_enigma.date_file
-
-
-message_file = ARGV[0]
-encrypt_file = ARGV[1]
-
-#Read in the encrypted message
-encrypt = File.read(encrypt_file)
-
-#Convert encryption to message
-message = Enigma.new(encrypt).to_message
-
-#Write message to the output file
-File.write(message_file, message)
-
-#Print this summary
-puts "Created #{encrypt_file} with the key #{KeyGenerator.new.key_file} and date #{new_enigma.date_file}"
+#
+# new_enigma = Enigma.new("")
+# new_enigma.date_file
+#
+#
+# message_file = ARGV[0]
+# encrypt_file = ARGV[1]
+#
+# #Read in the encrypted message
+# encrypt = File.read(encrypt_file)
+#
+# #Convert encryption to message
+# message = Enigma.new(encrypt).to_message
+#
+# #Write message to the output file
+# File.write(message_file, message)
+#
+# #Print this summary
+# puts "Created #{encrypt_file} with the key #{KeyGenerator.new.key_file} and date #{new_enigma.date_file}"
