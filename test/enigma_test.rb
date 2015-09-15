@@ -30,6 +30,4 @@ class EnigmaTest <Minitest::Test
     assert_equal "7225", date.rotate_date
   end
 
-
-
 end
