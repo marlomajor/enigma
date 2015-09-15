@@ -58,12 +58,40 @@ class Encrypt
   end
 
   def get_array
-    ['a', 'b', 'c', 'd', 'e', 'f',
+     ['a', 'b', 'c', 'd', 'e', 'f',
       'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n',
-      'o', 'p', 'q', 'r', 's', 't', 'u', 'w', 'x',
+      'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x',
       'y', 'z', '0', '1', '2', '3', '4', '5', '6',
       '7', '8', '9', ' ', '.', ',']
   end
+
+  def get_index_and_add_letter(letter)
+    index = get_index(letter)
+    encrypts_letter(index)
+  end
+
+  def encrypts_letter(index, offset_value)
+    i = index
+    n = 0
+    until n == offset_value
+      i += 1
+      n += 1
+      if i > 38
+        i = 0
+      end
+    end
+    get_array[i]
+  end
+
+  def get_index(letter)
+    array = get_array
+    i = 0
+    until i > 39 || array[i] == letter
+      i += 1
+    end
+    i.to_s
+  end
+
 
 end
 

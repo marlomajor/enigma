@@ -52,16 +52,33 @@ class EncryptTest <Minitest::Test
 
   def test_get_array
     array = Encrypt.new
-    assert_equal ['a', 'b', 'c', 'd', 'e', 'f',
-      'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n',
-      'o', 'p', 'q', 'r', 's', 't', 'u', 'w', 'x',
-      'y', 'z', '0', '1', '2', '3', '4', '5', '6',
+    assert_equal ['a', 'b', 'c', 'd', 'e', 'f', 'g',
+      'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p',
+      'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y',
+      'z', '0', '1', '2', '3', '4', '5', '6',
       '7', '8', '9', ' ', '.', ','], array.get_array
   end
 
-  # def test_index_one_works_as_expected
+  def test_index_one_works_as_expected
+    letter = Encrypt.new
+    assert_equal '0',  letter.get_index('a')
+    assert_equal '4',  letter.get_index('e')
+    assert_equal '38', letter.get_index(',')
+  end
+
+  # def test_it_finds_index
   #   letter = Encrypt.new
-  #   assert_equal ""
+  #   assert_equal '0',  letter.get_index_and_add_letter('a')
+  #   assert_equal '37', letter.get_index_and_add_letter('.')
   # end
+
+  def test_encrypts_single_letter_correctly
+    letter = Encrypt.new
+    assert_equal 't',  letter.encrypts_letter(0, 19)
+    assert_equal '8',  letter.encrypts_letter(15, 19)
+    assert_equal ' ',  letter.encrypts_letter(0, 36)
+    assert_equal 'i',  letter.encrypts_letter(3, 5)
+    assert_equal 'c',  letter.encrypts_letter(38, 3)
+  end
 
 end
