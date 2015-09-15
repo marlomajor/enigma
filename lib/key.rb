@@ -1,8 +1,9 @@
 #Key Generator
+require 'pry'
 class KeyGenerator
 
   def initialize
-
+    @key_file = key_file
   end
 
   def key_file

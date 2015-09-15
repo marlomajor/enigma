@@ -1,4 +1,5 @@
 require './lib/key.rb'
+require 'offset_calculator'
 
 #The Runner
 class Enigma
