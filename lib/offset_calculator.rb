@@ -1,11 +1,11 @@
 #OffsetCalculator
-require 'pry'           # => true
+require 'pry'
 class OffsetCalculator
 
   def initialize
-    get_key = KeyGenerator.new  # ~> NameError: uninitialized constant OffsetCalculator::KeyGenerator
+    get_key = KeyGenerator.new
     new_key = get_key
-  end                           # => :initialize
+  end
 
   def generate_key_offsets(new_key)
     get_keys = ""
@@ -15,7 +15,7 @@ class OffsetCalculator
     get_keys << key_work[2..3]
     get_keys << key_work[3..4]
     get_keys
-  end                        # => :generate_key_offsets
+  end
 
   def get_date
     time= Time.new
@@ -34,15 +34,6 @@ class OffsetCalculator
 
   def date_array_build(exponent)
     rotate_numbers         = exponent.to_s
-    rotate_date_numbers    = rotate_numbers[-4..-1]        # => :get_date
+    rotate_date_numbers    = rotate_numbers[-4..-1]
   end
-end  # => :get_date
-
-
-
-# ~> NameError
-# ~> uninitialized constant OffsetCalculator::KeyGenerator
-# ~>
-# ~> /Users/marlomajor/code/enigma/lib/offset_calculator.rb:6:in `initialize'
-# ~> /Users/marlomajor/code/enigma/lib/offset_calculator.rb:21:in `new'
-# ~> /Users/marlomajor/code/enigma/lib/offset_calculator.rb:21:in `<main>'
+end

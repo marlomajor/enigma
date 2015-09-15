@@ -2,13 +2,16 @@
 require 'pry'
 class KeyGenerator
 
+  attr_accessor :key
+
   def initialize
-    @key_file = key_file
+   @key = random_number = rand(100000)
   end
 
-  def key_file
-    random_number = rand(100000)
-  end
+  # def key_file
+  #
+  #   random_number = rand(100000)
+  # end
 
 end
 
