@@ -76,9 +76,7 @@ class Encrypt
     until n == offset_value.to_i
       i += 1
       n += 1
-      if i > 38
-        i = 0
-      end
+      i = 0 if i > 38
     end
     get_array[i]
   end

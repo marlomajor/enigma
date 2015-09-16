@@ -8,6 +8,7 @@ class MessageEncrypterTest <Minitest::Test
     assert MessageEncrypter
   end
 
+
   def test_encrypts_two_characters
     character = MessageEncrypter.new
     assert_equal 'kl', character.encrypts('hi', '3')
@@ -23,6 +24,18 @@ class MessageEncrypterTest <Minitest::Test
   #   character = MessageEncrypter.new
   #   assert_equal '', character.encrypts('-3', '3')
   # end
+
+
+  def test_encrypts_two_characters
+    character = MessageEncrypter.new
+    assert_equal 'kl', character.encrypts('hi', '3')
+  end
+
+  def test_encrypts_three_characters
+    character = MessageEncrypter.new
+    assert_equal 'x  ', character.encrypts('boo', '22')
+  end
+
 
   def test_gets_offset_value_for_a
     character = MessageEncrypter.new

@@ -17,7 +17,7 @@ class EncryptTest <Minitest::Test
 
   def test_we_get_the_correct_date
     date = OffsetCalculator.new
-    assert_equal 150915, date.get_date
+    assert_equal 160915, date.get_date
   end
 
   def test_rotate_date_works
