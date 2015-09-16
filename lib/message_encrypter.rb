@@ -33,10 +33,6 @@ class MessageEncrypter
   def d_value
     @encrypt.get_d_val
   end
-  #
-  # # def make_word_into_array(word)
-  #   word = word.chars
-  # end
 
   def encrypt_char(word)
     word = word.chars
