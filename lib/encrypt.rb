@@ -65,15 +65,15 @@ class Encrypt
       '7', '8', '9', ' ', '.', ',']
   end
 
-  def get_index_and_add_letter(letter)
+  def get_index_and_add_letter(letter, offset_value)
     index = get_index(letter)
-    encrypts_letter(index)
+    encrypts_letter(index, offset_value)
   end
 
   def encrypts_letter(index, offset_value)
-    i = index
+    i = index.to_i
     n = 0
-    until n == offset_value
+    until n == offset_value.to_i
       i += 1
       n += 1
       if i > 38
