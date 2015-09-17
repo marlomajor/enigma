@@ -2,17 +2,12 @@ require_relative 'key'
 require_relative 'offset_calculator'
 require_relative 'date'
 
-#The Runner
 class Encrypt
-  attr_accessor :key_file, :encrypt
+  attr_accessor :key_file, :text
 
   def initialize
-    @encrypt       = encrypt
-    @key_file      = KeyGenerator.new.key
-    @offset_value = OffsetCalculator.new
-  end
-
-  def to_message
+    @key_file            = KeyGenerator.new.key
+    @offset_value        = OffsetCalculator.new
   end
 
   def date_file
@@ -27,7 +22,7 @@ class Encrypt
 
   def get_rotated_date
     @offset_value.rotate_date
-  end#
+  end
 
   def get_rotated_key(new_key)
     @offset_value.generate_key_offsets(new_key)
@@ -90,40 +85,4 @@ class Encrypt
     i.to_s
   end
 
-
 end
-
-hello = Encrypt.new
-# hello.date_file
-hello.key_file
-
-
-
-
-
-
-
-
-
-
-
-# if __FILE__=$0
-#   new_enigma = Enigma.new("")
-#   new_enigma.date_file
-#
-#
-#   message_file = ARGV[0]
-#   encrypt_file = ARGV[1]
-#
-#   #Read in the encrypted message
-#   encrypt = File.read(encrypt_file)
-#
-#   #Convert encryption to message
-#   message = Enigma.new(encrypt).to_message
-#
-#   #Write message to the output file
-#   File.write(message_file, message)
-#
-#   #Print this summary
-#   puts "Created #{encrypt_file} with the key #{KeyGenerator.new.key_file} and date #{new_enigma.date_file}"
-# end

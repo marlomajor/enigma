@@ -1,3 +1,0 @@
-DATE: 140915
-KEY: 98765
-This is where the encrypted message will go.

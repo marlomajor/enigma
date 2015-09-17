@@ -1,5 +1,7 @@
 require_relative '../lib/encrypt.rb'
 require_relative '../lib/key.rb'
+require 'minitest/autorun'
+require 'minitest/pride'
 require 'pry'
 
 class EncryptTest <Minitest::Test
@@ -11,13 +13,13 @@ class EncryptTest <Minitest::Test
   def test_it_generates_key
     key_new_one = KeyGenerator.new.key
     key_new_two = KeyGenerator.new.key
-    refute_equal key_new_one, key_new_two
+    refute key_new_one == key_new_two
   end
 
 
   def test_we_get_the_correct_date
     date = OffsetCalculator.new
-    assert_equal 160915, date.get_date
+    assert_equal 170915, date.get_date
   end
 
   def test_rotate_date_works
@@ -74,6 +76,7 @@ class EncryptTest <Minitest::Test
     assert_equal ' ',  letter.encrypts_letter(0, 36)
     assert_equal 'i',  letter.encrypts_letter(3, 5)
     assert_equal 'c',  letter.encrypts_letter(38, 3)
+    assert_equal 'a',   letter.encrypts_letter(38, 79)
   end
 
 end

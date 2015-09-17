@@ -1,2 +1,0 @@
-key_file = 99999
-date_file = 140915

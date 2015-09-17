@@ -3,20 +3,16 @@ require 'pry'
 
 class MessageEncrypter
 
-  def initialize
+  def initialize(encrypted_message)
+    @encrypted_words = []
+    @encrypted_message = encrypted_message
     @encrypt = Encrypt.new
   end
 
-  def encrypts(word, offset_value)
-    word = word.chars
-    encrypted_words = []
-    i = 0
-    until word.length == i
-      encrypted_words << @encrypt.get_index_and_add_letter(word[i], offset_value)
-      i += 1
-    end
-    encrypted_words.join
+  def encrypt_char(letter, offset_value)
+    @encrypted_words << @encrypt.get_index_and_add_letter(letter, offset_value)
   end
+
 
   def a_value
     @encrypt.get_a_val
@@ -34,34 +30,27 @@ class MessageEncrypter
     @encrypt.get_d_val
   end
 
-  def encrypt_char(word)
-    word = word.chars
+  def encrypts
+    word = @encrypted_message
+
     encrypted_words = []
     i = 0
     n = 0
     until word.length == n
       if i == 0
-        encrypted_words << encrypts(word[i], a_value)
+        encrypted_words << encrypt_char(word[n], a_value)
       elsif i == 1
-        encrypted_words << encrypts(word[i], b_value)
+        encrypted_words << encrypt_char(word[n], b_value)
       elsif i == 2
-        encrypted_words << encrypts(word[i], c_value)
+        encrypted_words << encrypt_char(word[n], c_value)
       elsif i == 3
-        encrypted_words << encrypts(word[i], d_value)
+        encrypted_words << encrypt_char(word[n], d_value)
       end
       i += 1
       n += 1
-      if i == 4
-        i = 0
-      end
-
+      i = 0 if i == 4
     end
-    encrypted_words.join
+    @encrypted_words.join
   end
-
-
-
-
-
 
 end
