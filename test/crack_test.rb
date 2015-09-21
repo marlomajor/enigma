@@ -1,15 +1,9 @@
 require_relative '../lib/decrypt.rb'
 require_relative '../lib/key.rb'
 require_relative '../lib/message_decrypter.rb'
-require_relative '../lib/crack_emily.rb'
+require_relative '../lib/crack.rb'
 
 class CrackTest < Minitest::Test
-
-  def test_it_gets_difference_from_expected
-    skip
-    char = CrackEmily.new
-    assert_equal '2', char.rotation('aaaaaaaaaaaa')
-  end
 
   def test_it_gets_index
     char = CrackEmily.new

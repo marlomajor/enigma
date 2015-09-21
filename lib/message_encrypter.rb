@@ -31,7 +31,7 @@ class MessageEncrypter
   end                   # => :d_value
 
   def encrypts
-    word = @encrypted_message
+    word = @encrypted_message.chomp
 
     encrypted_words = []
     i = 0
@@ -50,7 +50,7 @@ class MessageEncrypter
       n += 1
       i = 0 if i == 4
     end
-    @encrypted_words.join.chop
+    @encrypted_words.join
 
   end  # => :encrypts
 

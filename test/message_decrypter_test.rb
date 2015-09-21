@@ -1,9 +1,11 @@
 require_relative '../lib/decrypt.rb'
 require_relative '../lib/key.rb'
 require_relative '../lib/message_decrypter.rb'
-​
+
 class MessageDecrypterTest <Minitest::Test
-​
+​#Located precisely where this comment is, there is a bug in atom.
+#Will not allow us to run program. Have experienced this bug numerous times and
+#have had to rewrite entire programs in order to fix it.
   def test_it_exists
     assert MessageDecrypter
   end
@@ -29,7 +31,6 @@ class MessageDecrypterTest <Minitest::Test
   end
 
     def test_gets_decryption_levels
-      binding.pry
       character = MessageDecrypter.new
   #   assert_equal 'u',        character.decrypts('a')
   # #   assert_equal 'uo',       character.decrypts('aa')

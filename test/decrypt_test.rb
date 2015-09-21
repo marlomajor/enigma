@@ -10,7 +10,7 @@ class DecryptTest <Minitest::Test
 
   def test_get_date
     date = Decrypt.new
-    assert_equal '170915', date.date_file
+    assert_equal '210915', date.date_file
     assert_equal '160915', date.date_file("2015-09-16 15:13:02 -0630")
     assert_equal '101010', date.date_file("2010-10-10 15:13:02 -0630")
   end

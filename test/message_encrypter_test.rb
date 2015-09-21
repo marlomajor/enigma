@@ -38,6 +38,7 @@ class MessageEncrypterTest <Minitest::Test
   end
 
   def test_gets_encryption_levels
+    
     character = MessageEncrypter.new('a')
     assert_equal 't',    character.encrypts
     character = MessageEncrypter.new('aa')
