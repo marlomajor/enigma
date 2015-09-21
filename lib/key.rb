@@ -5,7 +5,7 @@ class KeyGenerator
   attr_accessor :key  # => nil
 
   def initialize
-   @key = rand(100000).to_s.rjust(5, "0")  # => "39700"
+   @key = rand(100000).to_s.rjust(5, "0")  # => "40841"
   end                                      # => :initialize
 
   # def key_file
@@ -15,4 +15,5 @@ class KeyGenerator
 
 end  # => :initialize
 
-new_key = KeyGenerator.new()  # => #<KeyGenerator:0x007fc27182c270 @key="39700">
+new_key = KeyGenerator.new()  # => #<KeyGenerator:0x007fad3a895578 @key="40841">
+new_key.key                   # => "40841"

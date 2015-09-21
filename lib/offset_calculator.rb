@@ -1,8 +1,10 @@
 #OffsetCalculator
 require 'pry'
+
 class OffsetCalculator
 
   def initialize
+    decrypt_key = @date
     get_key = KeyGenerator.new
     new_key = get_key
   end

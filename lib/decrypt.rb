@@ -2,16 +2,17 @@ require_relative 'key'
 require_relative 'offset_calculator'
 require_relative 'date'
 
-class Encrypt
-  attr_accessor :key_file, :text
+#The Runner
+class Decrypt
+  attr_accessor :key_file, :decrypt
 
   def initialize
-    @key_file            = KeyGenerator.new.key
-    @offset_value        = OffsetCalculator.new
+    @decrypt       = decrypt
+    @key_file      = KeyGenerator.new.key
+    @offset_value  = OffsetCalculator.new
   end
 
-  def date_file
-    time= Time.new
+  def date_file(time = Time.new)
     time_string = time.to_s
     final_string = ""
     final_string << time_string[8..9]
@@ -22,7 +23,7 @@ class Encrypt
 
   def get_rotated_date
     @offset_value.rotate_date
-  end
+  end#
 
   def get_rotated_key(new_key)
     @offset_value.generate_key_offsets(new_key)
@@ -62,40 +63,65 @@ class Encrypt
 
   def get_index_and_add_letter(letter, offset_value)
     index = get_index(letter)
-    encrypts_letter(index, offset_value)
+    decrypts_letter(index, offset_value)
   end
 
-  def encrypts_letter(index, offset_value)
+  def decrypts_letter(index, offset_value)
     i = index.to_i
     n = 0
     until n == offset_value.to_i
-      i += 1
+      i -= 1
       n += 1
-      i = 0 if i > 38
+      i = 38 if i < 0
     end
     get_array[i]
   end
 
   def get_index(letter)
+    
     array = get_array
     i = 0
-    until i > 39 || array[i] == letter
+    until i > 39 || array[i] == letter.join
       i += 1
     end
+
     i.to_s
   end
 
+
 end
 
-#FILEIO for ENCRYPT
-if __FILE__ == $0
-  encrypted_file    = ARGV[0]
-  decrypted_file    = ARGV[1]
-  encrypted_message = File.read(encrypted_file)
-  decrypted_message = MessageEncrypter.new(encrypted_message).encrypts
-  input_date_file   = File.open(input_date_file)
-  input_key_file    = File.open(input_key_file)
+# hello = decrypt.new
+# # hello.date_file
+# hello.key_file
 
-  File.write(decrypted_file, decrypted_message)
-  puts "Created #{encrypted_file} with the key#{KeyGenerator.new.key} and date #{Encrypt.new.date_file}"
-end
+
+
+
+
+
+
+
+
+
+
+# if __FILE__=$0
+#   new_enigma = Enigma.new("")
+#   new_enigma.date_file
+#
+#
+#   message_file = ARGV[0]
+#   decrypt_file = ARGV[1]
+#
+#   #Read in the decrypted message
+#   decrypt = File.read(decrypt_file)
+#
+#   #Convert decryption to message
+#   message = Enigma.new(decrypt).to_message
+#
+#   #Write message to the output file
+#   File.write(message_file, message)
+#
+#   #Print this summary
+#   puts "Created #{decrypt_file} with the key #{KeyGenerator.new.key_file} and date #{new_enigma.date_file}"
+# end

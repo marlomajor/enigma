@@ -1,5 +1,5 @@
-require_relative 'encrypt'
-require 'pry'
+require_relative 'encrypt'  # => true
+require 'pry'               # => false
 
 class MessageEncrypter
 
@@ -7,28 +7,28 @@ class MessageEncrypter
     @encrypted_words = []
     @encrypted_message = encrypted_message
     @encrypt = Encrypt.new
-  end
+  end                                       # => :initialize
 
   def encrypt_char(letter, offset_value)
     @encrypted_words << @encrypt.get_index_and_add_letter(letter, offset_value)
-  end
+  end                                                                            # => :encrypt_char
 
 
   def a_value
     @encrypt.get_a_val
-  end
+  end                   # => :a_value
 
   def b_value
     @encrypt.get_b_val
-  end
+  end                   # => :b_value
   #
   def c_value
     @encrypt.get_c_val
-  end
+  end                   # => :c_value
 
   def d_value
     @encrypt.get_d_val
-  end
+  end                   # => :d_value
 
   def encrypts
     word = @encrypted_message
@@ -50,7 +50,8 @@ class MessageEncrypter
       n += 1
       i = 0 if i == 4
     end
-    @encrypted_words.join
-  end
+    @encrypted_words.join.chop
 
-end
+  end  # => :encrypts
+
+end  # => :encrypts
