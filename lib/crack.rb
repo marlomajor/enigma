@@ -65,17 +65,3 @@ class CrackEmily
   end
 
 end
-
-# if __FILE__ == $0
-#   input_file        = ARGV[0]
-#   output_file       = ARGV[1]
-#   date_file         = ARGV[2]
-#
-# encrypted_message = File.read(input_file)
-# cracked_message = MessageDecrypter.new(encrypted_message).decrypt(encrypted_message)
-# # cracked_message = cracked_message.crack_runner(encrypted_message)
-#
-# File.write(output_file, cracked_message)
-# binding.pry
-# puts "Created '#{output_file}' with the key #{CrackEmily.new.crack_runner(encrypted_message)} and date #{date_file}"
-# end

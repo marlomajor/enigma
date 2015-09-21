@@ -8,11 +8,6 @@ class KeyGenerator
    @key = rand(100000).to_s.rjust(5, "0")  # => "40841"
   end                                      # => :initialize
 
-  # def key_file
-  #
-  #   random_number = rand(100000)
-  # end
-
 end  # => :initialize
 
 new_key = KeyGenerator.new()  # => #<KeyGenerator:0x007fad3a895578 @key="40841">
